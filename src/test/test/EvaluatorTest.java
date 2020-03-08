@@ -8,14 +8,17 @@ import org.junit.jupiter.api.Test;
 
 class EvaluatorTest {
 	StringEvaluator EvaluatorInstance;
+	eval evalInstance;
 	@BeforeEach
 	void setUp() throws Exception {
 		EvaluatorInstance = new StringEvaluator();
+		evalInstance= new eval();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		EvaluatorInstance=null;
+		evalInstance=null;
 	}
 
 	@Test
@@ -57,6 +60,10 @@ class EvaluatorTest {
 	}@Test
 	void test11() {
 		assertEquals("Invalid String",EvaluatorInstance.calculate("4+3*/2+"));
+	}
+	@Test
+	void test12() {
+		assertEquals("10.0",evalInstance.parse("4+3*2"));
 	}
 
 }
