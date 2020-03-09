@@ -8,17 +8,20 @@ import org.junit.jupiter.api.Test;
 
 class EvaluatorTest {
 	StringEvaluator EvaluatorInstance;
-	eval evalInstance;
+
+	Evaluator EvalInstance;
 	@BeforeEach
 	void setUp() throws Exception {
 		EvaluatorInstance = new StringEvaluator();
-		evalInstance= new eval();
+		
+		EvalInstance = new Evaluator();
 	}
 
 	@AfterEach
 	void tearDown() throws Exception {
 		EvaluatorInstance=null;
-		evalInstance=null;
+		
+		EvalInstance = null;
 	}
 
 	@Test
@@ -63,7 +66,22 @@ class EvaluatorTest {
 	}
 	@Test
 	void test12() {
-		assertEquals("10.0",evalInstance.parse("4+3*2"));
+		assertEquals("10",EvalInstance.evaluate("4+3*2"));
 	}
-
+	@Test
+	void test13() {
+		assertEquals("11.28",EvalInstance.evaluate("2*pi+5"));
+	}
+	@Test
+	void test14() {
+		assertEquals("Unknown Constant",EvalInstance.evaluate("2*	py"));
+	}
+	@Test
+	void test15() {
+		assertEquals("6.28",EvalInstance.evaluate("2*	pi"));
+	}
+	@Test
+	void test16() {
+		assertEquals("2.01",EvalInstance.evaluate("1.005+1.005"));
+	}
 }
