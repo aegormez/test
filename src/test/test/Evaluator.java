@@ -19,7 +19,6 @@ public class Evaluator {
 		} catch (Exception RuntimeException){
 			return "Unknown Constant";
 		}
-		System.out.println(ModifyTheResult.Modify(str));
 		return ModifyTheResult.Modify(str);
 	}
 	
@@ -63,7 +62,6 @@ public class Evaluator {
         }else if (ch =='p') { // functions
             while (ch >= 'a' && ch <= 'z') getChar();
             String cons = str.substring(startPos, pos);
-            System.out.println(cons);
             //x = parseTerm();
             if (cons.equals("pi")) x = 3.14;
             else throw new RuntimeException("Unknown constant: " + cons);
